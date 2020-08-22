@@ -8,7 +8,7 @@ data class Student(
     @SerializedName("last_name") var lastName:String,
     @SerializedName("email")var email:String,
     @SerializedName("password")var password:String,
-    @SerializedName("phone_number")var phoneNumber:String,
+    @SerializedName("phone_number")var phoneNumber:String
 
 )
 
