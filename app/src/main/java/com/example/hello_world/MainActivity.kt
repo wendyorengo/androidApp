@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_registration.*
@@ -31,6 +32,16 @@ class MainActivity : AppCompatActivity() {
 
             if(password.isNullOrEmpty()){
                 editTextPassword.error = "Password is required"
+            }
+        }
+        var progress = 0
+        progressBar2.setOnClickListener {
+            if(progress < 100){
+                progress +=20
+            } else{
+                progress = 0
+                progressBar2.progress = progress
+                progressBar2.visibility = View.INVISIBLE
             }
         }
 
