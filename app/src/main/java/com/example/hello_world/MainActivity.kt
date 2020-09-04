@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         val requestBody =MultipartBody.Builder()
             .setType(MultipartBody.FORM)
             .addFormDataPart("name",email)
+            .addFormDataPart("student_id",studentId)
             .addFormDataPart("password", password.toString())
 
     }
@@ -68,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                     var sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
                     var editor = sharedPreferences.edit()
                     editor.putString("ACCESS_TOKEN_KEY", accessToken)
+                    editor.putString("STUDENT_ID_KEY",studentId)
                     editor.apply()
                     val intent = Intent(baseContext, CourseActivity::class.java)
                     startActivity(intent)
