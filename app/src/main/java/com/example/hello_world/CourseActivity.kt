@@ -52,12 +52,28 @@ class CourseActivity : AppCompatActivity() {
                     val coursesAdapter = CoursesRecyclerViewAdapter(courseList)
                     rvCourses.layoutManager = LinearLayoutManager(baseContext)
                     rvCourses.adapter = coursesAdapter
-                } else {
+                }
+
+
+                else {
                     Toast.makeText(baseContext, response.errorBody().toString(), Toast.LENGTH_LONG)
                         .show()
                 }
+
             }
         })
+        fun displayCourses(courses: List<Course>){
+            var coursesAdapter = CoursesRecyclerViewAdapter(courses)
+            var coursesAdapter = CoursesRecyclerViewAdapter(courses, this)
+            rvCourses.layoutManager = LinearLayoutManager(baseContext)
+            rvCourses.adapter = coursesAdapter
+        }
+        override fun onItemClick(course: Course) {
+
+            //obtain student id from shared preferences
+            //courseId = course.courseId
+            //make a post request https://github.com/owuor91/registration-api
+        }
 
 
 
